@@ -13,6 +13,7 @@
 		E0DEFE5D21179F32005C5538 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0DEFE5C21179F32005C5538 /* Assets.xcassets */; };
 		E0DEFE6021179F32005C5538 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0DEFE5E21179F32005C5538 /* LaunchScreen.storyboard */; };
 		E0DEFE6B21179F33005C5538 /* SpotHeroCodingChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DEFE6A21179F33005C5538 /* SpotHeroCodingChallengeTests.swift */; };
+		E0DEFE772117A0A3005C5538 /* NodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DEFE762117A0A3005C5538 /* NodeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		E0DEFE6621179F33005C5538 /* SpotHeroCodingChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotHeroCodingChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0DEFE6A21179F33005C5538 /* SpotHeroCodingChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotHeroCodingChallengeTests.swift; sourceTree = "<group>"; };
 		E0DEFE6C21179F33005C5538 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0DEFE762117A0A3005C5538 /* NodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				E0DEFE5521179F30005C5538 /* AppDelegate.swift */,
-				E0DEFE5721179F30005C5538 /* ViewController.swift */,
 				E0DEFE5921179F30005C5538 /* Main.storyboard */,
+				E0DEFE752117A085005C5538 /* Views */,
 				E0DEFE5C21179F32005C5538 /* Assets.xcassets */,
 				E0DEFE5E21179F32005C5538 /* LaunchScreen.storyboard */,
 				E0DEFE6121179F32005C5538 /* Info.plist */,
@@ -94,6 +96,15 @@
 				E0DEFE6C21179F33005C5538 /* Info.plist */,
 			);
 			path = SpotHeroCodingChallengeTests;
+			sourceTree = "<group>";
+		};
+		E0DEFE752117A085005C5538 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E0DEFE5721179F30005C5538 /* ViewController.swift */,
+				E0DEFE762117A0A3005C5538 /* NodeView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +210,7 @@
 			files = (
 				E0DEFE5821179F30005C5538 /* ViewController.swift in Sources */,
 				E0DEFE5621179F30005C5538 /* AppDelegate.swift in Sources */,
+				E0DEFE772117A0A3005C5538 /* NodeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +373,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6QCBR94VEX;
 				INFOPLIST_FILE = SpotHeroCodingChallenge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -379,6 +392,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6QCBR94VEX;
 				INFOPLIST_FILE = SpotHeroCodingChallenge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
