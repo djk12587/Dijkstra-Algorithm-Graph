@@ -44,7 +44,6 @@
 		E00E40022117F48C00CE4115 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E00E40052117F60900CE4115 /* Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
 		E00E40082117FACC00CE4115 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		E00E400A211806B700CE4115 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E0DEFE5221179F30005C5538 /* SpotHeroCodingChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotHeroCodingChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0DEFE5521179F30005C5538 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0DEFE5721179F30005C5538 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -146,7 +145,6 @@
 		E0DEFE5421179F30005C5538 /* SpotHeroCodingChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				E00E400A211806B700CE4115 /* README.md */,
 				E0DEFE5521179F30005C5538 /* AppDelegate.swift */,
 				E0DEFE5921179F30005C5538 /* Main.storyboard */,
 				E00E40042117F5DA00CE4115 /* Models */,
