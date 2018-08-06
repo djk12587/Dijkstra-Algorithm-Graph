@@ -18,9 +18,9 @@ class ViewController: UIViewController
     var nodeViewHeight: CGFloat = 25
     var nodeViewWidth: CGFloat = 100
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         addNodes()
     }
