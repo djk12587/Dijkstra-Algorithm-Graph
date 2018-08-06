@@ -8,6 +8,7 @@
 
 import UIKit
 import GameplayKit
+import Alamofire
 
 class ViewController: UIViewController
 {
@@ -17,6 +18,7 @@ class ViewController: UIViewController
     var totalNodes = 10
     var nodeViewHeight: CGFloat = 25
     var nodeViewWidth: CGFloat = 100
+    var nameRequest: Request?
 
     override func viewDidLoad()
     {
@@ -30,7 +32,7 @@ class ViewController: UIViewController
         addRandomNodeViews()
         addRandomConnections()
         
-        RandomNameApi.GetRandomNames(amount: 10).request { (outcome: Outcome<[Name]>) in
+        nameRequest = RandomNameApi.GetRandomNames(amount: 10).request { (outcome: Outcome<[Name]>) in
             switch outcome
             {
             case .success(let names):
@@ -39,7 +41,8 @@ class ViewController: UIViewController
                 self.nodeViews.enumerated().forEach { (indexedNodeView) in
                     indexedNodeView.element.label.text = names[indexedNodeView.offset].name
                 }
-            case .failure:
+            case .failure(let error):
+                guard (error as NSError).code != NSURLErrorCancelled else { return }
                 let alert = UIAlertController(title: "Error", message: "Something went wrong fetching names", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ok", style: .cancel))
                 self.present(alert, animated: true)
@@ -49,6 +52,8 @@ class ViewController: UIViewController
     
     @IBAction func resetPressed(_ sender: UIButton)
     {
+        nameRequest?.cancel()
+        
         view.subviews.forEach {
             if $0 is Node
             {
