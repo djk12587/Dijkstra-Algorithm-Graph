@@ -30,7 +30,7 @@ extension Node where Self: UIView
         
         node.addConnections(to: otherNodeViews.compactMap { $0.node }, bidirectional: true)
         otherNodeViews.forEach { (otherNode) in
-            drawLineFromPoint(start: center, toPoint: otherNode.centerCoordinate, ofColor: .red, inView: superview)
+            drawLineFromPoint(start: center, toPoint: otherNode.centerCoordinate, ofColor: .random, inView: superview)
         }
     }
 }
@@ -45,6 +45,7 @@ class NodeView: UIView, Node {
     var connectionLayers: [CAShapeLayer] = []
     weak var delegate: NodeViewDelegate?
     var identifier: Int
+    var label: UILabel!
     
     var node: GKGraphNode = GKGraphNode()
     
@@ -53,10 +54,13 @@ class NodeView: UIView, Node {
         self.init(frame: frame)
         self.identifier = identifier
         self.delegate = delegate
-        let idLabel = UILabel(frame: bounds)
-        idLabel.text = String(identifier)
-        idLabel.textAlignment = .center
-        addSubview(idLabel)
+        label = UILabel(frame: bounds)
+        label.text = String(identifier)
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        addSubview(label)
+        label.constrainToSuperViewFullScreen()
 
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(nodeWasTapped)))
     }
@@ -71,7 +75,7 @@ class NodeView: UIView, Node {
     {
         identifier = 0
         super.init(frame: frame)
-        layer.cornerRadius = bounds.size.width/2
+        layer.cornerRadius = 3.0
         layer.masksToBounds = true
     }
     

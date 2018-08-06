@@ -15,13 +15,57 @@ class ViewController: UIViewController
     weak var secondSelectedNodeView: NodeView?
     var nodeViews: [NodeView] = []
     var totalNodes = 10
+    var nodeViewHeight: CGFloat = 25
+    var nodeViewWidth: CGFloat = 100
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        addRandomeNodeViews()
+        addNodes()
+    }
+    
+    private func addNodes()
+    {
+        addRandomNodeViews()
         addRandomConnections()
+        
+        RandomNameApi.GetRandomNames(amount: 10).request { (outcome: Outcome<[Name]>) in
+            switch outcome
+            {
+            case .success(let names):
+                guard names.count == self.nodeViews.count else { return }
+                
+                self.nodeViews.enumerated().forEach { (indexedNodeView) in
+                    indexedNodeView.element.label.text = names[indexedNodeView.offset].name
+                }
+            case .failure:
+                let alert = UIAlertController(title: "Error", message: "Something went wrong fetching names", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok", style: .cancel))
+                self.present(alert, animated: true)
+            }
+        }
+    }
+    
+    @IBAction func resetPressed(_ sender: UIButton)
+    {
+        view.subviews.forEach {
+            if $0 is Node
+            {
+                $0.removeFromSuperview()
+            }
+        }
+        
+        nodeViews.removeAll()
+        
+        view.layer.sublayers?.forEach {
+            if $0 is CAShapeLayer
+            {
+                $0.removeFromSuperlayer()
+            }
+        }
+        
+        addNodes()
     }
     
     private func addRandomConnections()
@@ -42,14 +86,14 @@ class ViewController: UIViewController
         return Array(randomNodeIndex)
     }
     
-    private func addRandomeNodeViews()
+    private func addRandomNodeViews()
     {
         for i in 0..<totalNodes
         {
-            let nodeView = NodeView(frame: CGRect(x: CGFloat(arc4random_uniform(UInt32(UIScreen.main.bounds.width - 25))),
-                                                  y: CGFloat(arc4random_uniform(UInt32(UIScreen.main.bounds.height - (25 + UIApplication.shared.statusBarFrame.height)))),
-                                                  width: 25,
-                                                  height: 25),
+            let nodeView = NodeView(frame: CGRect(x: CGFloat(arc4random_uniform(UInt32(UIScreen.main.bounds.width - nodeViewWidth))),
+                                                  y: CGFloat(arc4random_uniform(UInt32(UIScreen.main.bounds.height - nodeViewHeight))),
+                                                  width: nodeViewWidth,
+                                                  height: nodeViewHeight),
                                     identifier: i,
                                     delegate: self)
             nodeView.layer.borderColor = UIColor.black.cgColor
@@ -106,7 +150,7 @@ extension ViewController: NodeViewDelegate
         {
             let path = firstNodeView.node.findPath(to: secondNodeView.node)
             
-            path.filter({![firstSelectedNodeView?.node, secondSelectedNodeView?.node].contains($0)}).forEach { (nodeInPath) in
+            path.filter({ ![firstSelectedNodeView?.node, secondSelectedNodeView?.node].contains($0) }).forEach { (nodeInPath) in
                 if let nodeViewInPath = nodeViews.first(where: { $0.node == nodeInPath })
                 {
                     nodeViewInPath.backgroundColor = .yellow
@@ -122,22 +166,4 @@ extension ViewController: NodeViewDelegate
             nodeViews.filter({ $0.backgroundColor == .yellow }).forEach { $0.backgroundColor = .cyan }
         }
     }
-}
-
-@discardableResult
-func drawLineFromPoint(start: CGPoint, toPoint end: CGPoint, ofColor lineColor: UIColor, inView view: UIView) -> CAShapeLayer
-{    
-    //design the path
-    let path = UIBezierPath()
-    path.move(to: start)
-    path.addLine(to: end)
-    
-    //design path in layer
-    let shapeLayer = CAShapeLayer()
-    shapeLayer.path = path.cgPath
-    shapeLayer.strokeColor = lineColor.cgColor
-    shapeLayer.lineWidth = 5.0
-    view.layer.insertSublayer(shapeLayer, at: 0)
-    
-    return shapeLayer
 }
