@@ -1,6 +1,6 @@
 Graphical representation of Dijkstra's Algorithm. 
 
-![Dijkstra's Algorithm playing multiple GIFs](https://github.com/djk12587/Dijkstra-Algorithm-Graph/blob/master/example.gif?raw=true)
+![Dijkstra's Algorithm playing multiple GIFs](https://github.com/djk12587/Dijkstra-Algorithm-Graph/blob/master/an_example.gif?raw=true)
 
 # Overview
 This project creates and places 10 random nodes
