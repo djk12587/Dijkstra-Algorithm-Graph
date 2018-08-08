@@ -1,3 +1,7 @@
+Graphical representation of Dijkstra's Algorithm. 
+
+![Dijkstra's Algorithm playing multiple GIFs](https://github.com/djk12587/Dijkstra-Algorithm-Graph/blob/master/example.gif?raw=true)
+
 # Overview
 This project creates and places 10 random nodes
 Each node creates up to 3 bidirectional connections to 3 other random nodes
@@ -23,5 +27,3 @@ No loading indicators for nodes when the names endpoint is pending
 # If I had a little more time
 I would of added tests 🤷‍♂️
 I would of liked to create a Graph object that would hold all the nodes. This would of removed a lot of color logic out of the view controller.
-
-
