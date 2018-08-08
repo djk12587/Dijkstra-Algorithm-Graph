@@ -1,3 +1,4 @@
+# Dijkstra's Algorithm Graph
 This is a graphical representation of Dijkstra's Algorithm. 
 
 ![Dijkstra's Algorithm playing multiple GIFs](https://github.com/djk12587/Dijkstra-Algorithm-Graph/blob/master/an_example.gif?raw=true)
