@@ -6,6 +6,6 @@ def common_pods
     pod 'Alamofire', '4.7.2'
 end
 
-target 'SpotHeroCodingChallenge' do
+target 'DijkstrasAlgorithm' do
     common_pods
 end

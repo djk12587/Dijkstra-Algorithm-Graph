@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_SpotHeroCodingChallengeVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_SpotHeroCodingChallengeVersionString[];
+FOUNDATION_EXPORT double Pods_DijkstrasAlgorithmVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_DijkstrasAlgorithmVersionString[];
 

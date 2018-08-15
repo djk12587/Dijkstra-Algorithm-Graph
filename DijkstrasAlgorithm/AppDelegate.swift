@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  SpotHeroCodingChallenge
+//  DijkstrasAlgorithm
 //
 //  Created by Dan Koza on 8/5/18.
 //  Copyright © 2018 Dan Koza. All rights reserved.
